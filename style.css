@@ -71,7 +71,6 @@ nav a:hover {
   flex-direction: column;
   background: #ffffff;
   border: 1px solid #d0d0d0;
-  border-top: 5px solid var(--primary);
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -109,14 +108,11 @@ nav a:hover {
   margin: auto;         
   padding: 1.5rem;
   background: #ffffff;
-  color: var(--text);
   border: 1px solid #d0d0d0;
-  border-top: 5px solid var(--primary);
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Dim the page behind the popup */
 [popover]::backdrop {
   background: rgba(0, 0, 0, 0.5);
 }
@@ -131,6 +127,56 @@ nav a:hover {
 
 [popover] button {
   margin-top: 0.5rem;
+}
+
+#note-form button,
+#note-form a {
+  display: inline-block;
+}
+/* New Note Page */
+#note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 600px;
+  margin: 1rem 0 2rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-top: 5px solid var(--primary);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#note-form label {
+  font-weight: bold;
+}
+
+#note-form input,
+#note-form select,
+#note-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+#note-form input:focus,
+#note-form select:focus,
+#note-form textarea:focus {
+  outline: 2px solid var(--primary);
+  border-color: var(--primary);
+  background: #ffffff;
+}
+
+#note-form textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+#note-form a {
+  margin-left: 1rem;
+  color: var(--primary-dark);
 }
 
 /* ---------- Footer ---------- */
