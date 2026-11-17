@@ -21,8 +21,65 @@
 
   <main>
     <h1>Notes</h1>
-  </main>
+    <section aria-label="Filter and search notes">
+        <p>Filters:</p>
+        <button type="button">All</button>
+        <button type="button">IST 4654</button>
+        <button type="button">Personal</button>
 
+        <label for="search">Search notes</label>
+        <input type="search" id="search" placeholder="Search...">
+
+        <a href="newNote.html">+ New Note</a>
+    </section>
+
+    <!-- For saved notes -->
+  <section id="notes-list" aria-label="Saved notes">
+    <article>
+      <h2>Final Project Ideas</h2>
+      <p>Class: IST 4654</p>
+      <p>Student calendar with notes, to-do, and calendar pages...</p>
+      <button type="button" popovertarget="note-1">Open</button>
+    </article>
+
+    <article>
+      <h2>CSS Flexbox Review</h2>
+      <p>Class: IST 4654</p>
+      <p>Flex container, justify-content, align-items...</p>
+      <button type="button" popovertarget="note-2">Open</button>
+    </article>
+
+    <article>
+      <h2>Thanksgiving Break</h2>
+      <p>Class: Personal</p>
+      <p>Drive home Wednesday, pack laptop for studying...</p>
+      <button type="button" popovertarget="note-3">Open</button>
+    </article>
+  </section>
+
+  <!-- For note popups -->
+  <div id="note-1" popover>
+    <h2>Final Project Ideas</h2>
+    <p>Class: IST 4654</p>
+    <p>Student calendar with notes, to-do, and calendar pages. Use a shared nav bar, one stylesheet, and sample data for the demo.</p>
+    <button type="button" popovertarget="note-1" popovertargetaction="hide">Close</button>
+  </div>
+
+  <div id="note-2" popover>
+    <h2>CSS Flexbox Review</h2>
+    <p>Class: IST 4654</p>
+    <p>Flex container, justify-content, align-items, and flex-wrap. Use flexbox for the nav bar and grid for the note cards.</p>
+    <button type="button" popovertarget="note-2" popovertargetaction="hide">Close</button>
+  </div>
+
+
+  <div id="note-3" popover>
+    <h2>Thanksgiving Break</h2>
+    <p>Class: Personal</p>
+    <p>Drive home Wednesday, pack laptop and charger for studying, and finish the essay outline before leaving.</p>
+    <button type="button" popovertarget="note-5" popovertargetaction="hide">Close</button>
+  </div>
+  </main>
 
   <footer>
     <p>&copy; 2026 Student Calendar | Last Updated: 11/17/2026 | Contact: <a href="mailto:blph3y@umsystem.edu">blph3y@umsystem.edu</a></p>
