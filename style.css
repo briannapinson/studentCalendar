@@ -185,3 +185,138 @@ footer {
   padding: 1rem 2rem;
   font-size: 0.9rem;
 }
+/* ---------- Calendar grid ---------- */
+#calendar {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+#calendar th {
+  padding: 0.6rem;
+  background: var(--primary);
+  color: #ffffff;
+}
+
+#calendar td {
+  height: 80px;
+  padding: 0.4rem;
+  font-size: 0.9rem;
+  vertical-align: top;
+  border: 1px solid #d0d0d0;
+}
+
+#calendar td.empty {
+  background: #f0f0f0;
+}
+
+#calendar td.today {
+  background: #e8f1f7;
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+.event {
+  display: block;
+  margin-top: 0.25rem;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.75rem;
+  background: var(--primary);
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+/* ---------- Upcoming list ---------- */
+#upcoming {
+  margin: 1.5rem auto;
+  max-width: 900px;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+}
+
+#upcoming h2 {
+  margin-top: 0;
+}
+
+/* ---------- Event popup form ---------- */
+#event-popup form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Hides text visually but keeps it for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* ---------- Calendar toolbar ---------- */
+#calendar-tools {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  margin: 0.75rem auto;
+  max-width: 900px;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+}
+
+#calendar-tools button {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+}
+
+.month-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.month-nav h2 {
+  margin: 0;
+  min-width: 9ch;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.month-nav button {
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+}
+
+.view-controls {
+  display: flex;
+}
+
+.view-controls button {
+  border-radius: 0;
+  border: 1px solid #bbbbbb;
+  margin-left: -1px;
+}
+
+.view-controls button:first-child {
+  border-radius: 4px 0 0 4px;
+  margin-left: 0;
+}
+
+.view-controls button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.new-event {
+  font-weight: bold;
+}
