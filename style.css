@@ -1,0 +1,141 @@
+/*
+NEED TO COME UP WITH COLOR SCHEME.
+
+:root {
+    --primary: ;
+    --primary-dark: ;
+    --light-gray: ;
+    --page-bg: ;
+    --text: ;
+} 
+
+*/
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: 1rem 2rem;
+}
+
+/* ---------- Header ---------- */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    min-height: 75px;
+    background-color: rgb(211, 209, 209); /* temporary */
+}
+
+/* ---------- Nav ---------- */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    border-bottom: 3px solid transparent;  
+}
+
+nav a:hover {
+    color:rgb(236, 0, 71); /* temporary color */
+}
+
+
+/* ---------- Notes: card grid ---------- */
+#notes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.25rem;
+  padding: 0.5rem 0 1.5rem;
+  margin-top: 10px;
+}
+
+#notes-list article {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-top: 5px solid var(--primary);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+#notes-list article:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+}
+
+#notes-list article h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+}
+
+#notes-list .course {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: #555555;
+}
+
+#notes-list article p {
+  margin: 0 0 1rem;
+}
+
+#notes-list article button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* ---------- Note Popups ---------- */
+[popover] {
+  width: min(90vw, 500px);
+  margin: auto;         
+  padding: 1.5rem;
+  background: #ffffff;
+  color: var(--text);
+  border: 1px solid #d0d0d0;
+  border-top: 5px solid var(--primary);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Dim the page behind the popup */
+[popover]::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+[popover] h2 {
+  margin-top: 0;
+}
+
+[popover] p {
+  margin: 0 0 1rem;
+}
+
+[popover] button {
+  margin-top: 0.5rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+}
