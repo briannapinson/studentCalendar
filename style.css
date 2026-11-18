@@ -1,61 +1,175 @@
-/*
-NEED TO COME UP WITH COLOR SCHEME.
-
+/* ---------- Colors (placeholders until the group picks a scheme) ---------- */
 :root {
-    --primary: ;
-    --primary-dark: ;
-    --light-gray: ;
-    --page-bg: ;
-    --text: ;
-} 
+  --primary: #2a6f97;
+  --primary-dark: #1d4f6e;
+  --light-gray: #d3d1d1;
+  --page-bg: #f4f4f4;
+  --text: #222222;
+}
 
-*/
+* {
+  box-sizing: border-box;
+}
 
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--page-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-    flex: 1;
-    padding: 1rem 2rem;
+  flex: 1;
+  padding: 1rem 2rem;
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  left: -999px;
+}
+
+.skip-link:focus {
+  left: 0;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: #ffffff;
+  color: var(--text);
 }
 
 /* ---------- Header ---------- */
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    min-height: 75px;
-    background-color: rgb(211, 209, 209); /* temporary */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  min-height: 75px;
+  padding: 0 2rem;
+  background-color: var(--light-gray);
 }
 
 /* ---------- Nav ---------- */
 nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
 }
 
 nav a {
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0.25rem 0.5rem;
-    border-bottom: 3px solid transparent;  
+  color: var(--text);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  border-bottom: 3px solid transparent;
 }
 
-nav a:hover {
-    color:rgb(236, 0, 71); /* temporary color */
+nav a:hover,
+nav a:focus,
+nav a[aria-current="page"] {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary);
 }
 
+/* ---------- Buttons (shared) ---------- */
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  background: var(--primary-dark);
+}
+
+/* Delete buttons */
+#delete-event,
+#note-view-delete {
+  background: #a31515;
+}
+
+#delete-event:hover,
+#delete-event:focus,
+#note-view-delete:hover,
+#note-view-delete:focus {
+  background: #7d0f0f;
+}
+
+/* ---------- Filter boxes (Notes and To-Do) ---------- */
+#note-tools,
+#todo-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#note-tools {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+#note-tools p,
+#todo-tools p {
+  margin: 0;
+  font-weight: bold;
+}
+
+#note-tools button,
+#todo-tools button {
+  padding: 0.35rem 0.9rem;
+  background: #e6e6ea;
+  color: var(--text);
+  border: 1px solid #bbbbbb;
+  border-radius: 999px;
+}
+
+#note-tools button:hover,
+#note-tools button:focus,
+#todo-tools button:hover,
+#todo-tools button:focus {
+  background: #d0d0d6;
+}
+
+#note-tools button[aria-pressed="true"],
+#todo-tools button[aria-pressed="true"] {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  font-weight: bold;
+}
+
+#note-tools input[type="search"] {
+  margin-left: auto;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+}
+
+#note-tools a {
+  color: var(--primary-dark);
+  font-weight: bold;
+}
 
 /* ---------- Notes: card grid ---------- */
 #notes-list {
@@ -71,6 +185,7 @@ nav a:hover {
   flex-direction: column;
   background: #ffffff;
   border: 1px solid #d0d0d0;
+  border-top: 5px solid var(--primary);
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -102,13 +217,15 @@ nav a:hover {
   align-self: flex-start;
 }
 
-/* ---------- Note Popups ---------- */
+/* ---------- Popups ---------- */
 [popover] {
   width: min(90vw, 500px);
-  margin: auto;         
+  margin: auto;
   padding: 1.5rem;
   background: #ffffff;
+  color: var(--text);
   border: 1px solid #d0d0d0;
+  border-top: 5px solid var(--primary);
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -129,12 +246,39 @@ nav a:hover {
   margin-top: 0.5rem;
 }
 
-#note-form button,
-#note-form a {
-  display: inline-block;
+[popover] a {
+  color: var(--primary-dark);
+  margin-right: 0.5rem;
 }
-/* New Note Page */
-#note-form {
+
+[popover] form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+[popover] label {
+  font-weight: bold;
+}
+
+[popover] input,
+[popover] select,
+[popover] textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+}
+
+[popover] textarea {
+  resize: vertical;
+}
+
+/* ---------- Form pages (New Note, To-Do add form) ---------- */
+#note-form,
+#todo-form {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -148,15 +292,20 @@ nav a:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#note-form label {
+#note-form label,
+#todo-form label {
   font-weight: bold;
 }
 
 #note-form input,
 #note-form select,
-#note-form textarea {
+#note-form textarea,
+#todo-form input,
+#todo-form select {
   width: 100%;
   padding: 0.6rem;
+  font-family: inherit;
+  font-size: 1rem;
   border: 1px solid #bbbbbb;
   border-radius: 4px;
   background: #fafafa;
@@ -164,7 +313,9 @@ nav a:hover {
 
 #note-form input:focus,
 #note-form select:focus,
-#note-form textarea:focus {
+#note-form textarea:focus,
+#todo-form input:focus,
+#todo-form select:focus {
   outline: 2px solid var(--primary);
   border-color: var(--primary);
   background: #ffffff;
@@ -174,89 +325,19 @@ nav a:hover {
   min-height: 160px;
   resize: vertical;
 }
+
+#note-form button,
+#note-form a {
+  display: inline-block;
+}
+
 #note-form a {
   margin-left: 1rem;
   color: var(--primary-dark);
 }
 
-/* ---------- Footer ---------- */
-footer {
-  text-align: center;
-  padding: 1rem 2rem;
-  font-size: 0.9rem;
-}
-/* ---------- Calendar grid ---------- */
-#calendar {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  table-layout: fixed;
-  border-collapse: collapse;
-  background: #ffffff;
-}
-
-#calendar th {
-  padding: 0.6rem;
-  background: var(--primary);
-  color: #ffffff;
-}
-
-#calendar td {
-  height: 80px;
-  padding: 0.4rem;
-  font-size: 0.9rem;
-  vertical-align: top;
-  border: 1px solid #d0d0d0;
-}
-
-#calendar td.empty {
-  background: #f0f0f0;
-}
-
-#calendar td.today {
-  background: #e8f1f7;
-  outline: 2px solid var(--primary);
-  outline-offset: -2px;
-}
-
-.event {
-  display: block;
-  margin-top: 0.25rem;
-  padding: 0.15rem 0.4rem;
-  font-size: 0.75rem;
-  background: var(--primary);
-  color: #ffffff;
-  border-radius: 4px;
-}
-
-/* ---------- Upcoming list ---------- */
-#upcoming {
-  margin: 1.5rem auto;
-  max-width: 900px;
-  padding: 1rem;
-  background: #ffffff;
-  border: 1px solid #d0d0d0;
-  border-radius: 8px;
-}
-
-#upcoming h2 {
-  margin-top: 0;
-}
-
-/* ---------- Event popup form ---------- */
-#event-popup form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-/* Hides text visually but keeps it for screen readers */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
+#todo-form button {
+  align-self: flex-start;
 }
 
 /* ---------- Calendar toolbar ---------- */
@@ -298,25 +379,133 @@ footer {
   padding: 0;
 }
 
-.view-controls {
-  display: flex;
-}
-
-.view-controls button {
-  border-radius: 0;
-  border: 1px solid #bbbbbb;
-  margin-left: -1px;
-}
-
-.view-controls button:first-child {
-  border-radius: 4px 0 0 4px;
-  margin-left: 0;
-}
-
-.view-controls button:last-child {
-  border-radius: 0 4px 4px 0;
-}
-
 .new-event {
   font-weight: bold;
+}
+
+/* ---------- Calendar grid ---------- */
+#calendar {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+#calendar th {
+  padding: 0.6rem;
+  background: var(--primary);
+  color: #ffffff;
+}
+
+#calendar td {
+  height: 80px; /* acts as a minimum height, cells grow with their events */
+  padding: 0.4rem;
+  font-size: 0.9rem;
+  vertical-align: top;
+  border: 1px solid #d0d0d0;
+  overflow: hidden;
+}
+
+#calendar td.empty {
+  background: #f0f0f0;
+}
+
+#calendar td.today {
+  background: #e8f1f7;
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+/* ---------- Calendar events ---------- */
+.event {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.2rem 0.4rem;
+  font-family: inherit;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  text-align: left;
+  color: #000000;
+  background: #cfe3f1;
+  border: 1px solid #8fb4cf;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.event:hover,
+.event:focus {
+  background: #b5d3e8;
+  color: #000000;
+  outline: 2px solid #000000;
+}
+
+/* ---------- Upcoming list ---------- */
+#upcoming {
+  margin: 1.5rem auto;
+  max-width: 900px;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+}
+
+#upcoming h2 {
+  margin-top: 0;
+}
+
+/* Hides text visually but keeps it for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  background-color: var(--light-gray);
+}
+
+footer a {
+  color: var(--primary-dark);
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+
+  header {
+    padding: 0.5rem 1rem;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+
+  #note-tools {
+    position: static;
+  }
+
+  #calendar td {
+    height: 70px;
+    padding: 0.25rem;
+    font-size: 0.8rem;
+  }
+
+  .event {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.25rem;
+  }
 }

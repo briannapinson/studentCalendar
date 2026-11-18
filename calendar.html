@@ -7,25 +7,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
 
   <header>
-    <nav>
+    <nav aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="calendar.html" aria-current="page">Calendar</a></li>
         <li><a href="todo.html">To-Do</a></li>
         <li><a href="notes.html">Notes</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <h1>Student Calendar</h1>
+  <main id="main">
+    <h1>Calendar</h1>
 
     <section id="calendar-tools" aria-label="Calendar controls">
       <div class="month-nav">
         <button type="button" id="prev-month" aria-label="Previous month">&lt;</button>
-        <h2 id="month-title">November 2026</h2>
+        <h2 id="month-title"></h2>
         <button type="button" id="next-month" aria-label="Next month">&gt;</button>
       </div>
 
@@ -34,7 +35,7 @@
 
     <section aria-label="Month view">
       <table id="calendar">
-        <caption class="visually-hidden">November 2026</caption>
+        <caption id="calendar-caption" class="visually-hidden"></caption>
         <thead>
           <tr>
             <th scope="col">Sun</th>
@@ -46,90 +47,41 @@
             <th scope="col">Sat</th>
           </tr>
         </thead>
-        <tbody id="calendar-body">
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>9</td>
-            <td>10<br><span class="event">Quiz: IST 4654</span></td>
-            <td>11</td>
-            <td>12</td>
-            <td>13<br><span class="event">Due: Wireframes</span></td>
-            <td>14</td>
-          </tr>
-          <tr>
-            <td>15</td>
-            <td>16</td>
-            <td class="today">17 <strong>(Today)</strong><br><span class="event">Group meeting</span></td>
-            <td>18</td>
-            <td>19</td>
-            <td>20</td>
-            <td>21</td>
-          </tr>
-          <tr>
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-            <td>25</td>
-            <td>26<br><span class="event">Thanksgiving</span></td>
-            <td>27</td>
-            <td>28</td>
-          </tr>
-          <tr>
-            <td>29</td>
-            <td>30<br><span class="event">Due: Essay</span></td>
-            <td class="empty"></td>
-            <td class="empty"></td>
-            <td class="empty"></td>
-            <td class="empty"></td>
-            <td class="empty"></td>
-          </tr>
-        </tbody>
+        <tbody id="calendar-body"></tbody>
       </table>
     </section>
 
-    <section id="upcoming" aria-label="Upcoming events">
-      <h2>Upcoming</h2>
-      <ul>
-        <li>Nov 17: Group meeting</li>
-        <li>Nov 26: Thanksgiving</li>
-        <li>Nov 30: Essay due</li>
-      </ul>
+    <section id="upcoming" aria-labelledby="upcoming-heading">
+      <h2 id="upcoming-heading">Upcoming</h2>
+      <ul id="upcoming-list"></ul>
     </section>
 
     <div id="event-popup" popover>
       <form id="event-form">
-        <h2>New Event</h2>
+        <h2 id="event-popup-title">New Event</h2>
 
         <label for="event-name">Name</label>
-        <input type="text" id="event-name" required>
+        <input type="text" id="event-name" name="name" required>
 
         <label for="event-priority">Priority</label>
-        <select id="event-priority">
+        <select id="event-priority" name="priority">
           <option>Low</option>
-          <option>Medium</option>
+          <option selected>Medium</option>
           <option>High</option>
         </select>
 
         <label for="event-date">Date</label>
-        <input type="date" id="event-date" required>
+        <input type="date" id="event-date" name="date" required>
 
         <label for="event-location">Location</label>
-        <input type="text" id="event-location">
+        <input type="text" id="event-location" name="location">
 
         <label for="event-description">Description</label>
-        <textarea id="event-description" rows="5"></textarea>
+        <textarea id="event-description" name="description" rows="5"></textarea>
 
         <div>
-          <button type="submit">Save</button>
+          <button type="submit" id="save-event">Save</button>
+          <button type="button" id="delete-event" hidden>Delete</button>
           <button type="button" popovertarget="event-popup" popovertargetaction="hide">Close</button>
         </div>
       </form>
@@ -140,5 +92,6 @@
     <p>&copy; 2026 Student Calendar | Last Updated: 11/17/2026 | Contact: <a href="mailto:blph3y@umsystem.edu">blph3y@umsystem.edu</a></p>
   </footer>
 
+  <script src="calendar.js"></script>
 </body>
 </html>
