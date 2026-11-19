@@ -1,10 +1,12 @@
-/* ---------- Colors (placeholders until the group picks a scheme) ---------- */
+
+  /* ---------- Website Color Scheme ---------- */
 :root {
-  --primary: #2a6f97;
-  --primary-dark: #1d4f6e;
-  --light-gray: #d3d1d1;
-  --page-bg: #f4f4f4;
-  --text: #222222;
+  --primary: #246B8F;
+  --primary-dark: #174A66;
+  --light-gray: #DCEAF1;
+  --page-bg: #F5F8FA;
+  --text: #24313A;
+}
 }
 
 * {
