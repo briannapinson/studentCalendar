@@ -6,14 +6,6 @@ const MONTH_NAMES = [
   "July", "August", "September", "October", "November", "December"
 ];
 
-const sampleEvents = [
-  { name: "Quiz: IST 4654", priority: "Medium", date: "2026-11-10", location: "", description: "" },
-  { name: "Wireframes due", priority: "High", date: "2026-11-13", location: "", description: "" },
-  { name: "Group meeting", priority: "Medium", date: "2026-11-17", location: "", description: "" },
-  { name: "Thanksgiving", priority: "Low", date: "2026-11-26", location: "", description: "" },
-  { name: "Essay due", priority: "High", date: "2026-11-30", location: "", description: "" }
-];
-
 const today = new Date();
 let viewYear = today.getFullYear();
 let viewMonth = today.getMonth();
@@ -31,7 +23,7 @@ const deleteButton = document.getElementById("delete-event");
 
 /* ---------- Storage ---------- */
 function loadEvents() {
-  let list = sampleEvents.slice();
+  let list = [];
   try {
     const saved = localStorage.getItem(EVENTS_KEY);
     if (saved !== null) {
@@ -41,7 +33,7 @@ function loadEvents() {
     console.error("Could not read saved events:", error);
   }
 
-  // Give every event an id (older saved events and the samples have none)
+  // Give every event an id (older saved events may not have one)
   list.forEach(function (event, index) {
     if (!event.id) {
       event.id = Date.now() + index;

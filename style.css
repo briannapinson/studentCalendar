@@ -627,3 +627,124 @@ footer a {
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- To-Do page ---------- */
+#todo-tools label {
+  font-weight: bold;
+}
+
+#todo-tools select {
+  padding: 0.35rem 0.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+#todo-section {
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#todo-section h2 {
+  margin-top: 0;
+}
+
+#todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#todo-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+#todo-list input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+#todo-list li.done label {
+  text-decoration: line-through;
+  color: #555555;
+}
+
+.task-meta {
+  font-size: 0.85rem;
+  color: #555555;
+}
+
+.overdue {
+  padding: 0 0.35rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #a31515;
+  border: 1px solid #a31515;
+  border-radius: 4px;
+}
+
+#todo-list .todo-delete {
+  margin-left: auto;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+  background: #a31515;
+}
+
+#todo-list .todo-delete:hover,
+#todo-list .todo-delete:focus {
+  background: #7d0f0f;
+}
+
+/* ---------- To-Do layout (matches wireframe) ---------- */
+#todo-tools {
+  justify-content: space-between;
+}
+
+.tools-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* The add form sits at the bottom of the list card */
+#todo-section #todo-form {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem;
+  max-width: none;
+  margin: 1rem 0 0;
+  padding: 1rem 0 0;
+  background: none;
+  border: none;
+  border-top: 2px solid #d0d0d0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#todo-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1 1 140px;
+}
+
+#todo-form .field-wide {
+  flex: 2 1 220px;
+}
+
+#todo-section #todo-form button {
+  align-self: flex-end;
+}

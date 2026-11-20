@@ -65,6 +65,9 @@ if (editId !== null) {
     saveButton.textContent = "Save Changes";
     titleInput.value = existing.title;
     courseInput.value = existing.course;
+    if (!courseInput.value) {
+      courseInput.selectedIndex = 0;
+    }
     bodyInput.value = existing.body;
   } else {
     // Bad or old id: fall back to creating a new note

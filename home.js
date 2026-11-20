@@ -9,36 +9,6 @@ const MONTH_NAMES = [
   "July", "August", "September", "October", "November", "December"
 ];
 
-// Keep these sample lists identical to the ones in calendar.js and notes.js
-const sampleEvents = [
-  { name: "Quiz: IST 4654", priority: "Medium", date: "2026-11-10", location: "", description: "" },
-  { name: "Wireframes due", priority: "High", date: "2026-11-13", location: "", description: "" },
-  { name: "Group meeting", priority: "Medium", date: "2026-11-17", location: "", description: "" },
-  { name: "Thanksgiving", priority: "Low", date: "2026-11-26", location: "", description: "" },
-  { name: "Essay due", priority: "High", date: "2026-11-30", location: "", description: "" }
-];
-
-const sampleNotes = [
-  {
-    id: 1,
-    title: "Final Project Ideas",
-    course: "IST 4654",
-    body: "Student calendar with notes, to-do, and calendar pages. Use a shared nav bar, one stylesheet, and sample data for the demo."
-  },
-  {
-    id: 2,
-    title: "CSS Flexbox Review",
-    course: "IST 4654",
-    body: "Flex container, justify-content, align-items, and flex-wrap. Use flexbox for the nav bar and grid for the note cards."
-  },
-  {
-    id: 3,
-    title: "Thanksgiving Break",
-    course: "Personal",
-    body: "Drive home Wednesday, pack laptop and charger for studying, and finish the essay outline before leaving."
-  }
-];
-
 const today = new Date();
 
 /* ---------- Helpers ---------- */
@@ -73,8 +43,8 @@ function addEmptyMessage(list, text) {
   list.appendChild(item);
 }
 
-const events = readList(EVENTS_KEY, sampleEvents.slice());
-const notes = readList(NOTES_KEY, sampleNotes.slice());
+const events = readList(EVENTS_KEY, []);
+const notes = readList(NOTES_KEY, []);
 const todos = readList(TODOS_KEY, []);
 
 /* ---------- Mini calendar ---------- */
@@ -223,7 +193,7 @@ function renderNotes() {
 
     const course = document.createElement("p");
     course.className = "course";
-    course.textContent = "Class: " + note.course;
+    course.textContent = "Category: " + note.course;
 
     const preview = document.createElement("p");
     preview.textContent = note.body.length > 90 ? note.body.slice(0, 90) + "..." : note.body;
