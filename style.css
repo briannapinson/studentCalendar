@@ -1,12 +1,10 @@
-
-  /* ---------- Website Color Scheme ---------- */
+/* ---------- Website Color Scheme ---------- */
 :root {
   --primary: #246B8F;
   --primary-dark: #174A66;
   --light-gray: #DCEAF1;
   --page-bg: #F5F8FA;
   --text: #24313A;
-}
 }
 
 * {
@@ -509,5 +507,123 @@ footer a {
   .event {
     font-size: 0.65rem;
     padding: 0.1rem 0.25rem;
+  }
+}
+
+/* ---------- Home page ---------- */
+#welcome {
+  margin: 1rem 0 1.5rem;
+}
+
+.home-columns {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+.home-column {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.home-card {
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.home-card h2 {
+  margin-top: 0;
+}
+
+.home-card h3 {
+  margin: 1rem 0 0.25rem;
+}
+
+.home-card a {
+  color: var(--primary-dark);
+}
+
+.card-note {
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+#home-calendar-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+#home-calendar-table caption {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+#home-calendar-table th {
+  padding: 0.3rem;
+  font-size: 0.8rem;
+  background: var(--primary);
+  color: #ffffff;
+}
+
+#home-calendar-table td {
+  height: 3rem;
+  padding: 0.2rem;
+  font-size: 0.85rem;
+  text-align: center;
+  vertical-align: top;
+  border: 1px solid #d0d0d0;
+}
+
+#home-calendar-table td.empty {
+  background: #f0f0f0;
+}
+
+#home-calendar-table td.today {
+  background: #e8f1f7;
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+#home-calendar-table a.has-events {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#home-notes-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+#home-notes-list article {
+  padding: 0.75rem 1rem;
+  background: var(--page-bg);
+  border: 1px solid #d0d0d0;
+  border-left: 5px solid var(--primary);
+  border-radius: 6px;
+}
+
+#home-notes-list h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+}
+
+#home-notes-list p {
+  margin: 0 0 0.5rem;
+}
+
+#home-notes-list .course {
+  font-size: 0.9rem;
+  color: #555555;
+}
+
+@media (max-width: 800px) {
+  .home-columns {
+    grid-template-columns: 1fr;
   }
 }
