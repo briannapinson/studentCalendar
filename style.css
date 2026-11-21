@@ -27,21 +27,6 @@ main {
   padding: 1rem 2rem;
 }
 
-/* ---------- Skip link ---------- */
-.skip-link {
-  position: absolute;
-  left: -999px;
-}
-
-.skip-link:focus {
-  left: 0;
-  top: 0;
-  z-index: 100;
-  padding: 0.5rem 1rem;
-  background: #ffffff;
-  color: var(--text);
-}
-
 /* ---------- Header ---------- */
 header {
   display: flex;
@@ -400,7 +385,7 @@ button:focus {
 }
 
 #calendar td {
-  height: 80px; /* acts as a minimum height, cells grow with their events */
+  height: 80px; 
   padding: 0.4rem;
   font-size: 0.9rem;
   vertical-align: top;
@@ -456,15 +441,6 @@ button:focus {
 
 #upcoming h2 {
   margin-top: 0;
-}
-
-/* Hides text visually but keeps it for screen readers */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
 }
 
 /* ---------- Footer ---------- */
@@ -706,7 +682,7 @@ footer a {
   background: #7d0f0f;
 }
 
-/* ---------- To-Do layout (matches wireframe) ---------- */
+/* ---------- To-Do layout ---------- */
 #todo-tools {
   justify-content: space-between;
 }
@@ -718,7 +694,6 @@ footer a {
   gap: 0.5rem;
 }
 
-/* The add form sits at the bottom of the list card */
 #todo-section #todo-form {
   flex-direction: row;
   flex-wrap: wrap;
