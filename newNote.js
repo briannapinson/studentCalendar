@@ -2,28 +2,6 @@
 
 const NOTES_KEY = "notes";
 
-// Keep this list identical to the one in notes.js
-const sampleNotes = [
-  {
-    id: 1,
-    title: "Final Project Ideas",
-    course: "IST 4654",
-    body: "Student calendar with notes, to-do, and calendar pages. Use a shared nav bar, one stylesheet, and sample data for the demo."
-  },
-  {
-    id: 2,
-    title: "CSS Flexbox Review",
-    course: "IST 4654",
-    body: "Flex container, justify-content, align-items, and flex-wrap. Use flexbox for the nav bar and grid for the note cards."
-  },
-  {
-    id: 3,
-    title: "Thanksgiving Break",
-    course: "Personal",
-    body: "Drive home Wednesday, pack laptop and charger for studying, and finish the essay outline before leaving."
-  }
-];
-
 const form = document.getElementById("note-form");
 const formTitle = document.getElementById("form-title");
 const saveButton = document.getElementById("save-note");
